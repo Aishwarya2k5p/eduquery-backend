@@ -508,7 +508,7 @@ IMPORTANT INSTRUCTIONS:
 4. For list-type questions, extract ONLY the items that are explicitly mentioned in the PDF content. Do NOT add or infer any items.
 5. If a source is not directly listed or described in the PDF, do NOT include it in your answer.
 6. Preserve the structure (e.g., tables, bullet points) as in the PDF.
-7. If the user asks for 'one point', 'key points', or a summary about multiple items (such as topics, entities, etc.), search the entire PDF content for each item and present the most relevant information found for each, if present. If no information is present for an item, state that the answer is not present in the provided PDF content and based on the content present use knowledge to give a accurate information. This instruction applies to all types of PDFs, not just sector-based queries.
+7. If the user asks for 'one point', 'key points', or a summary about multiple items (such as topics, entities, etc.), search the entire PDF content for each item and present the most relevant information found for each, if present. If no information is present for an item, state that the answer is not present in the provided PDF content and based on the content present, use knowledge to give accurate information. This instruction applies to all types of PDFs.
 8. COMPREHENSIVE RESPONSE: Always provide ALL available information related to the query from the PDF content, even if the user doesn't explicitly ask for \"all\" or \"list\". Give complete, thorough answers that cover all relevant points, aspects, or items found in the document. Do not limit yourself to just a few points unless the user specifically requests brevity.
 9. Format the response clearly, if needed:
    - Use headings and subheadings where appropriate.
@@ -659,9 +659,6 @@ class EduQueryAPI:
         @self.app.get("/")
         async def root():
             return {"message": "Optimized EduQuery API is running", "status": "ok"}
-        
-        # REMOVED TEST ENDPOINT THAT RETURNS COLLECTION COUNTS
-        # REMOVED MAINTENANCE ENDPOINT
         
         @self.app.post("/upload/")
         async def upload_pdf(file: UploadFile = File(...)):
