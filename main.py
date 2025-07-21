@@ -309,7 +309,7 @@ def is_new_topic_query(query: str, recent_history) -> bool:
         # Simple term extraction - you could use more sophisticated NLP here
         terms = set(re.findall(r'\b[a-zA-Z]{3,}\b', text))
         # Remove common words
-        common_words = {'what', 'is', 'are', 'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'from', 'about', 'this', 'that', 'these', 'those', 'how', 'why', 'when', 'where', 'who', 'which', 'tell', 'me', 'more', 'detail', 'explain', 'state', 'all', 'uses', 'use', 'computer', 'network', 'networks', 'simple', 'beginner', 'easy', 'basics', 'short', 'key', 'points', 'summary', 'them', 'they', 'their'}
+        common_words = {'what', 'is', 'are', 'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'from', 'about', 'this', 'that', 'these', 'those', 'how', 'why', 'when', 'where', 'who', 'which', 'tell', 'me', 'more', 'detail', 'explain', 'state', 'all', 'uses', 'use', 'simple', 'beginner', 'easy', 'basics', 'short', 'key', 'points', 'summary', 'them', 'they', 'their'}
         return terms - common_words
     
     current_terms = set(extract_terms(query.lower()))
@@ -326,8 +326,6 @@ def is_new_topic_query(query: str, recent_history) -> bool:
     new_topic_indicators = [
         'what is', 'define', 'explain', 'tell me about', 'describe',
         'how does', 'what are', 'list', 'show me', 'give me',
-        'big data', 'analytics', 'sectors', 'industries', 'applications',
-        'mapreduce', 'cloud computing', 'grid computing', 'data analysis'
     ]
     
     # If query contains new topic indicators, it might be a new topic
